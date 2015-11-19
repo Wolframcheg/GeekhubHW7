@@ -17,7 +17,7 @@ class TeamController extends Controller
      */
     public function indexAction()
     {
-        return $this->redirectToRoute('homepage', [], 301);
+        return $this->forward("AppBundle:Default:index");
     }
 
     /**
