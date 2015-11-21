@@ -6,6 +6,8 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}
             <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+            <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
+            <script type="text/javascript" src="/js/jquery.gracket.js-master/jquery.gracket.min.js"></script>
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
