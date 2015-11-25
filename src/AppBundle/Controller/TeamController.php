@@ -33,7 +33,6 @@ class TeamController extends Controller
             $team = new Team();
             $team->name = $contryname;
             $team->slug = $team->country_slug = strtolower($slug);
-            $team->image = $faker->imageUrl(22, 15);
             array_push($teams, $team);
         }
         return ['teams' => $teams];
