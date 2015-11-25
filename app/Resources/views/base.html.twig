@@ -22,9 +22,9 @@
             </div>
             <div class="navbar-collapse collapse navbar-responsive-collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('team_list') }}">Teams</a></li>
-                    <li><a href="{{ url('country_list') }}">Countries</a></li>
-                    <li><a href="{{ url('game_list') }}">Games</a></li>
+                    <li class="{{ app.request.attributes.get('_route') == 'team_list' ? 'active' }}"><a href="{{ url('team_list') }}">Teams</a></li>
+                    <li class="{{ app.request.attributes.get('_route') == 'country_list' ? 'active' }}"><a href="{{ url('country_list') }}">Countries</a></li>
+                    <li class="{{ app.request.attributes.get('_route') == 'game_list' ? 'active' }}"><a href="{{ url('game_list') }}">Games</a></li>
                 </ul>
             </div>
         </div>
