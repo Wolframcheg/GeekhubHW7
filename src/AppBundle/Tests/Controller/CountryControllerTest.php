@@ -9,7 +9,7 @@ class CountryControllerTest extends WebTestCase
     public function testIndex()
     {
         $client = static::createClient();
-        $crawler = $client->request('GET', '/country');
+        $crawler = $client->request('GET', '/countries');
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
         $this->assertEquals(
