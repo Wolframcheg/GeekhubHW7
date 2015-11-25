@@ -10,4 +10,5 @@ class Team
     public $country_slug;
     public $country_image;
     public $info;
+    public $image;
 }
