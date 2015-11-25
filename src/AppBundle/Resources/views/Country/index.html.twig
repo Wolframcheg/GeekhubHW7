@@ -3,13 +3,13 @@
 {% block title %}Countries{% endblock %}
 
 {% block body %}
-            <ul>
-                {% for country in countries %}
-                    <li><a href="{{ path('country_view',{'slug': country.slug}) }}">
-                            <img src="{{ country.image }}"> {{ country.name }}
-                        </a></li>
-                {% endfor %}
-            </ul>
+    <ul>
+        {% for country in countries %}
+            <li><a href="{{ path('country_view',{'slug': country.slug}) }}">
+                    <img src="{{ country.image }}"> {{ country.name }}
+                </a></li>
+        {% endfor %}
+    </ul>
 {% endblock %}
 
 

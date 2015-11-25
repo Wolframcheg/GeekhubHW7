@@ -3,7 +3,6 @@
 namespace AppBundle\Model;
 
 
-
 class Country
 {
     public $name;

@@ -30,7 +30,8 @@ class GameControllerTest extends WebTestCase
         );
     }
 
-    public function dataProvider() {
+    public function dataProvider()
+    {
         return [
             ['/game/3', 200],
             ['/game/3ff', 404],

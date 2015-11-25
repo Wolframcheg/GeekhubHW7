@@ -3,53 +3,53 @@
 {% block title %}Euro 2016 bracket{% endblock %}
 
 {% block body %}
-  <div class="gracket"></div>
+    <div class="gracket"></div>
 {% endblock %}
  {% block javascripts %}
-    {{  parent() }}
+     {{ parent() }}
      <script type="text/javascript">
-             bracketData = [
-                 [
-                     [{"name": 'France', "id": "france", "seed":'<img src="/media/img_team/france.png">' },
-                         {"name": 'Albania', "id": "albania", "seed":'<img src="/media/img_team/albania.png">'}],
-                     [{"name": 'Belgium', "id": "belgium","seed":'<img src="/media/img_team/belgium.png">'},
-                         {"name": 'Ukraine', "id": "ukraine", "seed":'<img src="/media/img_team/ukraine.png">'}],
-                     [{"name": 'Portugal', "id": "portugal", "seed":'<img src="/media/img_team/portugal.png">'},
-                         {"name": 'Spain', "id": "spain", "seed":'<img src="/media/img_team/spain.png">'}],
-                     [{"name": 'Germany', "id": "germany", "seed":'<img src="/media/img_team/germany.png">'},
-                         {"name": 'Hungary', "id": "hungary", "seed":'<img src="/media/img_team/hungary.png">'}],
-                     [{"name": 'Iceland', "id": "iceland", "seed":'<img src="/media/img_team/iceland.png">'},
-                         {"name": 'Ireland', "id": "ireland", "seed":'<img src="/media/img_team/ireland.png">'}],
-                     [{"name": 'Poland', "id": "poland", "seed":'<img src="/media/img_team/poland.png">'},
-                         {"name": 'Russia', "id": "russia", "seed":'<img src="/media/img_team/russia.png">'}],
-                     [{"name": 'Romania', "id": "romania", "seed":'<img src="/media/img_team/romania.png">'},
-                         {"name": 'Italy', "id": "italy", "seed":'<img src="/media/img_team/italy.png">'}],
-                     [{"name": 'Czech', "id": "czech", "seed":'<img src="/media/img_team/czech.png">'},
-                         {"name": 'Croatia', "id": "croatia", "seed":'<img src="/media/img_team/croatia.png">'}]
-                 ],
-                 [
-                     [{"name": "", "id": ""}, {"name": "", "id": ""}],
-                     [{"name": "", "id": ""}, {"name": "", "id": ""}],
-                     [{"name": "", "id": ""}, {"name": "", "id": ""}],
-                     [{"name": "", "id": ""}, {"name": "", "id": ""}]
-                 ],
-                 [
-                     [{"name": "", "id": ""}, {"name": "", "id": ""}],
-                     [{"name": "", "id": ""}, {"name": "", "id": ""}]
-                 ],
-                 [
-                     [{"name": "", "id": ""}, {"name": "", "id": ""}]
-                 ],
-                 [
-                     [{"name": "", "id": ""}]
-                 ]
-             ];
-             // initializer
-             $(".gracket").gracket({
-                 src: bracketData,
-                 canvasLineColor: "#000",
-                 roundLabels: ["1/8", "1/4", "1/2", "Final", "Winner"]
-             });
+         bracketData = [
+             [
+                 [{"name": 'France', "id": "france", "seed": '<img src="/media/img_team/france.png">'},
+                     {"name": 'Albania', "id": "albania", "seed": '<img src="/media/img_team/albania.png">'}],
+                 [{"name": 'Belgium', "id": "belgium", "seed": '<img src="/media/img_team/belgium.png">'},
+                     {"name": 'Ukraine', "id": "ukraine", "seed": '<img src="/media/img_team/ukraine.png">'}],
+                 [{"name": 'Portugal', "id": "portugal", "seed": '<img src="/media/img_team/portugal.png">'},
+                     {"name": 'Spain', "id": "spain", "seed": '<img src="/media/img_team/spain.png">'}],
+                 [{"name": 'Germany', "id": "germany", "seed": '<img src="/media/img_team/germany.png">'},
+                     {"name": 'Hungary', "id": "hungary", "seed": '<img src="/media/img_team/hungary.png">'}],
+                 [{"name": 'Iceland', "id": "iceland", "seed": '<img src="/media/img_team/iceland.png">'},
+                     {"name": 'Ireland', "id": "ireland", "seed": '<img src="/media/img_team/ireland.png">'}],
+                 [{"name": 'Poland', "id": "poland", "seed": '<img src="/media/img_team/poland.png">'},
+                     {"name": 'Russia', "id": "russia", "seed": '<img src="/media/img_team/russia.png">'}],
+                 [{"name": 'Romania', "id": "romania", "seed": '<img src="/media/img_team/romania.png">'},
+                     {"name": 'Italy', "id": "italy", "seed": '<img src="/media/img_team/italy.png">'}],
+                 [{"name": 'Czech', "id": "czech", "seed": '<img src="/media/img_team/czech.png">'},
+                     {"name": 'Croatia', "id": "croatia", "seed": '<img src="/media/img_team/croatia.png">'}]
+             ],
+             [
+                 [{"name": "", "id": ""}, {"name": "", "id": ""}],
+                 [{"name": "", "id": ""}, {"name": "", "id": ""}],
+                 [{"name": "", "id": ""}, {"name": "", "id": ""}],
+                 [{"name": "", "id": ""}, {"name": "", "id": ""}]
+             ],
+             [
+                 [{"name": "", "id": ""}, {"name": "", "id": ""}],
+                 [{"name": "", "id": ""}, {"name": "", "id": ""}]
+             ],
+             [
+                 [{"name": "", "id": ""}, {"name": "", "id": ""}]
+             ],
+             [
+                 [{"name": "", "id": ""}]
+             ]
+         ];
+         // initializer
+         $(".gracket").gracket({
+             src: bracketData,
+             canvasLineColor: "#000",
+             roundLabels: ["1/8", "1/4", "1/2", "Final", "Winner"]
+         });
 
      </script>
  {% endblock %}

@@ -22,8 +22,8 @@ class CountryController extends Controller
         $countries = [];
         $faker = \Faker\Factory::create();
 
-        $x=0;
-        while ($x++<25){
+        $x = 0;
+        while ($x++ < 25) {
             $contryname = $faker->country;
             $slug = str_replace(' ', '-', $contryname);
             $slug = preg_replace('/[^A-Za-z\-]/', '', $slug);
@@ -32,7 +32,7 @@ class CountryController extends Controller
             $country->name = $contryname;
             $country->slug = strtolower($slug);
 
-            array_push($countries,$country);
+            array_push($countries, $country);
         }
         return ['countries' => $countries];
     }
@@ -48,7 +48,7 @@ class CountryController extends Controller
         $country = new Country();
         $country->slug = $slug;
         $country->name = $faker->country;
-        $country->image = $faker->imageUrl(22,15);
+        $country->image = $faker->imageUrl(22, 15);
         $country->info = $faker->text;
         return ['country' => $country];
     }

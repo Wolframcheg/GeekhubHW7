@@ -30,7 +30,8 @@ class UserControllerTest extends WebTestCase
         );
     }
 
-    public function dataProvider() {
+    public function dataProvider()
+    {
         return [
             ['/user/3', 200],
             ['/user/3ff', 404],

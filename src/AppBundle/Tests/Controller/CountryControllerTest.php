@@ -35,7 +35,8 @@ class CountryControllerTest extends WebTestCase
         );
     }
 
-    public function dataProvider() {
+    public function dataProvider()
+    {
         return [
             ['/country/somecountry', 200],
             ['/country/44somecountry', 404],

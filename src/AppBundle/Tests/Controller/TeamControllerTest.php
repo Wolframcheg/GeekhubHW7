@@ -30,7 +30,8 @@ class TeamControllerTest extends WebTestCase
         );
     }
 
-    public function dataProvider() {
+    public function dataProvider()
+    {
         return [
             ['/team/commandname', 200],
             ['/team/commandname44', 404],

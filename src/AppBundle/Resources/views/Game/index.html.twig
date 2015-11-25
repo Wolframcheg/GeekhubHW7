@@ -3,8 +3,8 @@
 {% block title %}Games{% endblock %}
 
 {% block body %}
-    <p>Team1 (<strong>0</strong>) - (<strong>0</strong>) Team2</p>
-    <p>Team1 (<strong>0</strong>) - (<strong>0</strong>) Team2</p>
-    <p>Team1 (<strong>0</strong>) - (<strong>0</strong>) Team2</p>
-    <p>Team1 (<strong>0</strong>) - (<strong>0</strong>) Team2</p>
+    {% for game in games %}
+        <p>{{ game.team1Name }} (<strong>{{ game.team1Score }}</strong>) -
+            (<strong>{{ game.team2Score }}</strong>) {{ game.team2Name }}</p>
+    {% endfor %}
 {% endblock %}
