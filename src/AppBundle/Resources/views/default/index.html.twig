@@ -1,169 +1,56 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Euro 2016 teams{% endblock %}
+{% block title %}Euro 2016 bracket{% endblock %}
 
 {% block body %}
-    <div id="wrapper">
-        <div id="container">
-            <div id="welcome">
-                <h1>Euro 2016 teams</h1>
-            </div>
-        <div class="main">
-            <div class="index-wrapper">
-                <div class="table-grid">
-                    <table>
-                        <tr>
-                            <th></th>
-                            <th>Team</th>
-                        </tr>
-                        <tr>
-                            <td><a href="country/france"><img src="/media/img_team/france.png"></a></td>
-                            <td><a href ="team/france">France</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="country/england"><img src="/media/img_team/england.png"></a></td>
-                            <td><a href ="team/england">England</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="country/czech"><img src="/media/img_team/czech.png"></a></td>
-                            <td><a href ="team/czech">Czech</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="country/iceland"><img src="/media/img_team/iceland.png"></a></td>
-                            <td><a href ="team/iceland">Iceland</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="country/austria"><img src="/media/img_team/austria.png"></a></td>
-                            <td><a href ="team/austria">Austria</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="country/northern_ireland"><img src="/media/img_team/northern_ireland.png"></a></td>
-                            <td><a href ="team/northern_ireland">Northern Ireland</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="country/portugal"><img src="/media/img_team/portugal.png"></a></td>
-                            <td><a href ="team/portugal">Portugal</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="country/spain"><img src="/media/img_team/spain.png"></a></td>
-                            <td><a href ="team/spain">Spain</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="country/switzerland"><img src="/media/img_team/switzerland.png"></a></td>
-                            <td><a href ="team/switzerland">Switzerland</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="country/italy"><img src="/media/img_team/italy.png"></a></td>
-                            <td><a href ="team/italy">Italy</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="country/belgium"><img src="/media/img_team/belgium.png"></a></td>
-                            <td><a href ="team/belgium">Belgium</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="country/wales"><img src="/media/img_team/wales.png"></a></td>
-                            <td><a href ="team/wales">Wales</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="country/romania"><img src="/media/img_team/romania.png"></a></td>
-                            <td><a href ="team/romania">Romania</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="country/albania"><img src="/media/img_team/albania.png"></a></td>
-                            <td><a href ="team/albania">Albania</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="country/germany"><img src="/media/img_team/germany.png"></a></td>
-                            <td><a href ="team/germany">Germany</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="country/poland"><img src="/media/img_team/poland.png"></a></td>
-                            <td><a href ="team/poland">Poland</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="country/russia"><img src="/media/img_team/russia.png"></a></td>
-                            <td><a href ="team/russia">Russia</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="country/slovakia"><img src="/media/img_team/slovakia.png"></a></td>
-                            <td><a href ="team/slovakia">Slovakia</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="country/croatia"><img src="/media/img_team/croatia.png"></a></td>
-                            <td><a href ="team/croatia">Croatia</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="country/turkey"><img src="/media/img_team/turkey.png"></a></td>
-                            <td><a href ="team/turkey">Turkey</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="country/hungary"><img src="/media/img_team/hungary.png"></a></td>
-                            <td><a href ="team/hungary">Hungary</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="country/ireland"><img src="/media/img_team/ireland.png"></a></td>
-                            <td><a href ="team/ireland">Ireland</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="country/sweden"><img src="/media/img_team/sweden.png"></a></td>
-                            <td><a href ="team/sweden">Sweden</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="country/ukraine"><img src="/media/img_team/ukraine.png"></a></td>
-                            <td><a href ="team/ukraine">Ukraine</a></td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="gracket"></div>
-            </div>
-        </div>
-        </div>
-    </div>
+  <div class="gracket"></div>
 {% endblock %}
  {% block javascripts %}
     {{  parent() }}
      <script type="text/javascript">
-         bracketData = [
-             [
-                 [ {"name" : '<img src="/media/img_team/france.png">France', "id" : "france"},
-                   {"name" : '<img src="/media/img_team/albania.png">Albania', "id" : "albania"} ],
-                 [ {"name" : '<img src="/media/img_team/belgium.png">Belgium', "id" : "belgium"},
-                   {"name" : '<img src="/media/img_team/ukraine.png">Ukraine', "id" : "ukraine"}],
-                 [ {"name" : '<img src="/media/img_team/portugal.png">Portugal', "id" : "portugal"},
-                   {"name" : '<img src="/media/img_team/spain.png">Spain', "id" : "spain"} ],
-                 [ {"name" : '<img src="/media/img_team/germany.png">Germany', "id" : "germany"},
-                   {"name" : '<img src="/media/img_team/hungary.png">Hungary', "id" : "jungary"}],
-                 [ {"name" : '<img src="/media/img_team/iceland.png">Iceland', "id" : "iceland"},
-                   {"name" : '<img src="/media/img_team/ireland.png">Ireland', "id" : "ireland"} ],
-                 [ {"name" : '<img src="/media/img_team/poland.png">Poland', "id" : "poland"},
-                   {"name" : '<img src="/media/img_team/russia.png">Russia', "id" : "russia"}],
-                 [ {"name" : '<img src="/media/img_team/romania.png">Romania', "id" : "romania"},
-                   {"name" : '<img src="/media/img_team/italy.png">Italy', "id" : "italy"} ],
-                 [ {"name" : '<img src="/media/img_team/czech.png">Czech', "id" : "czech"},
-                   {"name" : '<img src="/media/img_team/croatia.png">Croatia', "id" : "croatia"}]
-             ],
-             [
-                 [ {"name" : "", "id" : ""}, {"name" : "", "id" : ""} ],
-                 [ {"name" : "", "id" : ""}, {"name" : "", "id" : ""} ],
-                 [ {"name" : "", "id" : ""}, {"name" : "", "id" : ""} ],
-                 [ {"name" : "", "id" : ""}, {"name" : "", "id" : ""} ]
-             ],
-             [
-                 [ {"name" : "", "id" : ""}, {"name" : "", "id" : ""} ],
-                 [ {"name" : "", "id" : ""}, {"name" : "", "id" : ""} ]
-             ],
-             [
-                 [ {"name" : "", "id" : ""}, {"name" : "", "id" : ""} ]
-             ],
-             [
-                 [ {"name" : "", "id" : ""} ]
-             ]
-         ];
-         // initializer
-         $(".gracket").gracket({
-             src : bracketData,
-             roundLabels : ["1/8", "1/4", "1/2", "Final", "Winner"]
-         });
+             bracketData = [
+                 [
+                     [{"name": 'France', "id": "france", "seed":'<img src="/media/img_team/france.png">' },
+                         {"name": 'Albania', "id": "albania", "seed":'<img src="/media/img_team/albania.png">'}],
+                     [{"name": 'Belgium', "id": "belgium","seed":'<img src="/media/img_team/belgium.png">'},
+                         {"name": 'Ukraine', "id": "ukraine", "seed":'<img src="/media/img_team/ukraine.png">'}],
+                     [{"name": 'Portugal', "id": "portugal", "seed":'<img src="/media/img_team/portugal.png">'},
+                         {"name": 'Spain', "id": "spain", "seed":'<img src="/media/img_team/spain.png">'}],
+                     [{"name": 'Germany', "id": "germany", "seed":'<img src="/media/img_team/germany.png">'},
+                         {"name": 'Hungary', "id": "hungary", "seed":'<img src="/media/img_team/hungary.png">'}],
+                     [{"name": 'Iceland', "id": "iceland", "seed":'<img src="/media/img_team/iceland.png">'},
+                         {"name": 'Ireland', "id": "ireland", "seed":'<img src="/media/img_team/ireland.png">'}],
+                     [{"name": 'Poland', "id": "poland", "seed":'<img src="/media/img_team/poland.png">'},
+                         {"name": 'Russia', "id": "russia", "seed":'<img src="/media/img_team/russia.png">'}],
+                     [{"name": 'Romania', "id": "romania", "seed":'<img src="/media/img_team/romania.png">'},
+                         {"name": 'Italy', "id": "italy", "seed":'<img src="/media/img_team/italy.png">'}],
+                     [{"name": 'Czech', "id": "czech", "seed":'<img src="/media/img_team/czech.png">'},
+                         {"name": 'Croatia', "id": "croatia", "seed":'<img src="/media/img_team/croatia.png">'}]
+                 ],
+                 [
+                     [{"name": "", "id": ""}, {"name": "", "id": ""}],
+                     [{"name": "", "id": ""}, {"name": "", "id": ""}],
+                     [{"name": "", "id": ""}, {"name": "", "id": ""}],
+                     [{"name": "", "id": ""}, {"name": "", "id": ""}]
+                 ],
+                 [
+                     [{"name": "", "id": ""}, {"name": "", "id": ""}],
+                     [{"name": "", "id": ""}, {"name": "", "id": ""}]
+                 ],
+                 [
+                     [{"name": "", "id": ""}, {"name": "", "id": ""}]
+                 ],
+                 [
+                     [{"name": "", "id": ""}]
+                 ]
+             ];
+             // initializer
+             $(".gracket").gracket({
+                 src: bracketData,
+                 canvasLineColor: "#000",
+                 roundLabels: ["1/8", "1/4", "1/2", "Final", "Winner"]
+             });
+
      </script>
  {% endblock %}
 

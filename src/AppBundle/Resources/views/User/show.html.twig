@@ -1,19 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}User "#user_name"{% endblock %}
+{% block title %}User "{{ user.name }} {{ user.lastName }}"{% endblock %}
 
 {% block body %}
-    <div id="wrapper">
-        <div id="container">
-            <div id="welcome">
-                <h1>User "#user_name"</h1>
-            </div>
-            <div class="main">
-                <div>
-                    Info about user
-                </div>
-            </div>
-
-        </div>
-    </div>
+  <div>
+    {{ user.info }}
+  </div>
 {% endblock %}

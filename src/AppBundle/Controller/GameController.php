@@ -12,12 +12,13 @@ class GameController extends Controller
 {
 
     /**
-     * @Route("/game")
+     * @Route("/games", name="game_list")
      * @Method("GET")
+     * @Template()
      */
     public function indexAction()
     {
-        return $this->redirectToRoute('homepage', [], 301);
+        return [];
     }
 
     /**

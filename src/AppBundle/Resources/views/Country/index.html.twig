@@ -3,43 +3,13 @@
 {% block title %}Countries{% endblock %}
 
 {% block body %}
-    <div id="wrapper">
-        <div id="container">
-            <div id="welcome">
-                <h1>Countries</h1>
-            </div>
-        <div class="main">
             <ul>
-                <li><a href ="country/france">France</a></li>
-                <li><a href ="country/england">England</a></li>
-                <li><a href ="country/czech">Czech</a></li>
-                <li><a href ="country/iceland">Iceland</a></li>
-                <li><a href ="country/austria">Austria</a></li>
-                <li><a href ="country/northern_ireland">Northern Ireland</a></li>
-                <li><a href ="country/portugal">Portugal</a></li>
-                <li><a href ="country/spain">Spain</a></li>
-                <li><a href ="country/switzerland">Switzerland</a></li>
-                <li><a href ="country/italy">Italy</a></li>
-                <li><a href ="country/belgium">Belgium</a></li>
-                <li><a href ="country/wales">Wales</a></li>
-                <li><a href ="country/romania">Romania</a></li>
-                <li><a href ="country/albania">Albania</a></li>
-                <li><a href ="country/germany">Germany</a></li>
-                <li><a href ="country/poland">Poland</a></li>
-                <li><a href ="country/russia">Russia</a></li>
-                <li><a href ="country/slovakia">Slovakia</a></li>
-                <li><a href ="country/croatia">Croatia</a></li>
-                <li><a href ="country/turkey">Turkey</a></li>
-                <li><a href ="country/hungary">Hungary</a></li>
-                <li><a href ="country/ireland">Ireland</a></li>
-                <li><a href ="country/sweden">Sweden</a></li>
-                <li><a href ="country/ukraine">Ukraine</a></li>
+                {% for country in countries %}
+                    <li><a href="{{ path('country_view',{'slug': country.slug}) }}">
+                            <img src="{{ country.image }}"> {{ country.name }}
+                        </a></li>
+                {% endfor %}
             </ul>
-
-        </div>
-
-        </div>
-    </div>
 {% endblock %}
 
 

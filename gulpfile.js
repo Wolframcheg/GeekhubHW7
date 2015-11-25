@@ -23,7 +23,9 @@ gulp.task('lib-js', function() {
     return gulp.src([
             'bower_components/jquery/dist/jquery.js',
             'bower_components/bootstrap/dist/js/bootstrap.js',
-            'bower_components/jquery.gracket.js/jquery.gracket.min.js'
+            'bower_components/bootstrap-material-design/dist/js/ripples.js',
+            'bower_components/bootstrap-material-design/dist/js/material.js',
+            'bower_components/jquery.gracket.js/jquery.gracket.min.js',
         ])
         .pipe(concatJs('app.js'))
         .pipe(minifyJs())

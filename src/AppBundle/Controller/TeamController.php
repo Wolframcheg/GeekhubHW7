@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Model\Team;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -12,12 +13,28 @@ class TeamController extends Controller
 {
 
     /**
-     * @Route("/team")
+     * @Route("/teams", name="team_list")
      * @Method("GET")
+     * @Template()
      */
     public function indexAction()
     {
-        return $this->forward("AppBundle:Default:index");
+        $teams = [];
+        $faker = \Faker\Factory::create();
+
+        $x=0;
+        while ($x++<25){
+            $contryname = $faker->country;
+            $slug = str_replace(' ', '-', $contryname);
+            $slug = preg_replace('/[^A-Za-z\-]/', '', $slug);
+
+            $team = new Team();
+            $team->name = $contryname;
+            $team->slug = $team->country_slug = strtolower($slug);
+            $team->image = $faker->imageUrl(22,15);
+            array_push($teams,$team);
+        }
+        return ['teams' => $teams];
     }
 
     /**

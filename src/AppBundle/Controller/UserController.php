@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Model\User;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -10,16 +11,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 class UserController extends Controller
 {
-
-    /**
-     * @Route("/user")
-     * @Method("GET")
-     */
-    public function indexAction()
-    {
-        return $this->redirectToRoute('homepage', [], 301);
-    }
-
     /**
      * @Route("/user/{id}", requirements={"id" = "\d+"}, name="user_show")
      * @Method("GET")
@@ -27,6 +18,12 @@ class UserController extends Controller
      */
     public function showAction($id)
     {
-        return [];
+        $faker = \Faker\Factory::create();
+        $user = new User();
+        $user->name = $faker->firstName;
+        $user->lastName = $faker->lastName;
+        $user->info = $faker->text;
+
+        return ['user' => $user];
     }
 }
