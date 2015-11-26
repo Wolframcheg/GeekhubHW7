@@ -9,39 +9,74 @@
      {{ parent() }}
      <script type="text/javascript">
          bracketData = [
+
              [
-                 [{"name": 'France', "id": "france", "seed": '<img src="/media/img_team/france.png">'},
-                     {"name": 'Albania', "id": "albania", "seed": '<img src="/media/img_team/albania.png">'}],
-                 [{"name": 'Belgium', "id": "belgium", "seed": '<img src="/media/img_team/belgium.png">'},
-                     {"name": 'Ukraine', "id": "ukraine", "seed": '<img src="/media/img_team/ukraine.png">'}],
-                 [{"name": 'Portugal', "id": "portugal", "seed": '<img src="/media/img_team/portugal.png">'},
-                     {"name": 'Spain', "id": "spain", "seed": '<img src="/media/img_team/spain.png">'}],
-                 [{"name": 'Germany', "id": "germany", "seed": '<img src="/media/img_team/germany.png">'},
-                     {"name": 'Hungary', "id": "hungary", "seed": '<img src="/media/img_team/hungary.png">'}],
-                 [{"name": 'Iceland', "id": "iceland", "seed": '<img src="/media/img_team/iceland.png">'},
-                     {"name": 'Ireland', "id": "ireland", "seed": '<img src="/media/img_team/ireland.png">'}],
-                 [{"name": 'Poland', "id": "poland", "seed": '<img src="/media/img_team/poland.png">'},
-                     {"name": 'Russia', "id": "russia", "seed": '<img src="/media/img_team/russia.png">'}],
-                 [{"name": 'Romania', "id": "romania", "seed": '<img src="/media/img_team/romania.png">'},
-                     {"name": 'Italy', "id": "italy", "seed": '<img src="/media/img_team/italy.png">'}],
-                 [{"name": 'Czech', "id": "czech", "seed": '<img src="/media/img_team/czech.png">'},
-                     {"name": 'Croatia', "id": "croatia", "seed": '<img src="/media/img_team/croatia.png">'}]
+                 {% for i in 0..7 %}
+                    {% if round1_8[i] is defined %}
+                        [{"name": '{{ round1_8[i].team1Name }}',
+                          "id": '{{ round1_8[i].team1Name }}',
+                          "seed": '<img src="{{ round1_8[i].team1Image }}">'},
+                         {"name": '{{ round1_8[i].team2Name }}',
+                          "id": '{{ round1_8[i].team2Name }}',
+                          "seed": '<img src="{{ round1_8[i].team2Image }}">'}
+                         ],
+                    {% else %}
+                         [{"name": "", "id": ""}, {"name": "", "id": ""}],
+                    {% endif %}
+                 {% endfor %}
+
              ],
              [
-                 [{"name": "", "id": ""}, {"name": "", "id": ""}],
-                 [{"name": "", "id": ""}, {"name": "", "id": ""}],
-                 [{"name": "", "id": ""}, {"name": "", "id": ""}],
-                 [{"name": "", "id": ""}, {"name": "", "id": ""}]
+                 {% for i in 0..3 %}
+                     {% if round1_4[i] is defined %}
+                        [{"name": '{{ round1_4[i].team1Name }}',
+                          "id": '{{ round1_4[i].team1Name }}',
+                          "seed": '<img src="{{ round1_4[i].team1Image }}">'},
+                         {"name": '{{ round1_4[i].team2Name }}',
+                          "id": '{{ round1_4[i].team2Name }}',
+                          "seed": '<img src="{{ round1_4[i].team2Image }}">'}
+                     ],
+                     {% else %}
+                        [{"name": "", "id": ""}, {"name": "", "id": ""}],
+                     {% endif %}
+                 {% endfor %}
              ],
              [
-                 [{"name": "", "id": ""}, {"name": "", "id": ""}],
-                 [{"name": "", "id": ""}, {"name": "", "id": ""}]
+                 {% for i in 0..1 %}
+                     {% if round1_2[i] is defined %}
+                         [{"name": '{{ round1_2[i].team1Name }}',
+                           "id": '{{ round1_2[i].team1Name }}',
+                           "seed": '<img src="{{ round1_[i].team1Image }}">'},
+                          {"name": '{{ round1_2[i].team2Name }}',
+                           "id": '{{ round1_2[i].team2Name }}',
+                           "seed": '<img src="{{ round1_2[i].team2Image }}">'}
+                         ],
+                     {% else %}
+                        [{"name": "", "id": ""}, {"name": "", "id": ""}],
+                     {% endif %}
+                 {% endfor %}
              ],
              [
-                 [{"name": "", "id": ""}, {"name": "", "id": ""}]
+                 {% if roundFinal[0] is defined %}
+                    [{"name": '{{ roundFinal[0].team1Name }}',
+                      "id": '{{ roundFinal[0].team1Name }}',
+                      "seed": '<img src="{{ roundFinal[0].team1Image }}">'},
+                     {"name": '{{ roundFinal[0].team2Name }}',
+                      "id": '{{ round1_2[i].team2Name }}',
+                      "seed": '<img src="{{ roundFinal[0].team2Image }}">'}
+                 ],
+                 {% else %}
+                    [{"name": "", "id": ""}, {"name": "", "id": ""}],
+                 {% endif %}
              ],
              [
-                 [{"name": "", "id": ""}]
+                 {% if winner is empty %}
+                    [{"name": "", "id": ""}],
+                 {% else %}
+                    [{"name": '{{ winner.team1Name }}',
+                      "id": '{{ winner.team1Name }}',
+                      "seed": '<img src="{{ winner.team1Image }}">'}]
+                 {% endif %}
              ]
          ];
          // initializer
