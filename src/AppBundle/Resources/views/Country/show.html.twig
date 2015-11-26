@@ -1,20 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Country "#name_country"{% endblock %}
+{% block title %}Country "{{ country.name }}"{% endblock %}
 
 {% block body %}
-    <div id="wrapper">
-        <div id="container">
-            <div id="welcome">
-                <h1>Country "#name_country"</h1>
-            </div>
-            <main>
-                <div>
-                    Info about country
-                </div>
-            </main>
-
-        </div>
+    <div>
+        <img src="{{ country.image }}">
+        {{ country.info }}
     </div>
 {% endblock %}
 

@@ -1,64 +1,37 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Team "#name_team"{% endblock %}
+{% block title %}Team "{{ team.name }}"{% endblock %}
 
 {% block body %}
-    <div id="wrapper">
-        <div id="container">
-            <div id="welcome">
-                <h1>Team "#name_team"</h1>
-            </div>
-            <div class="main">
-                <div>
-                    Info about team
-                </div>
-                <div>
-                    <div class="users-block">
-                        <h2>Players</h2>
-                        <ul>
-                            <li><a href ="user/1">John Doe</a></li>
-                            <li><a href ="user/1">John Doe</a></li>
-                            <li><a href ="user/1">John Doe</a></li>
-                            <li><a href ="user/1">John Doe</a></li>
-                            <li><a href ="user/1">John Doe</a></li>
-                            <li><a href ="user/1">John Doe</a></li>
-                            <li><a href ="user/1">John Doe</a></li>
-                            <li><a href ="user/1">John Doe</a></li>
-                            <li><a href ="user/1">John Doe</a></li>
-                            <li><a href ="user/1">John Doe</a></li>
-                            <li><a href ="user/1">John Doe</a></li>
-                            <li><a href ="user/1">John Doe</a></li>
-                            <li><a href ="user/1">John Doe</a></li>
-                            <li><a href ="user/1">John Doe</a></li>
-                            <li><a href ="user/1">John Doe</a></li>
-                            <li><a href ="user/1">John Doe</a></li>
-                            <li><a href ="user/1">John Doe</a></li>
-                            <li><a href ="user/1">John Doe</a></li>
-                            <li><a href ="user/1">John Doe</a></li>
-                            <li><a href ="user/1">John Doe</a></li>
-                        </ul>
-                    </div>
-                    <div class="users-block">
-                        <h2>Coaching Staff</h2>
-                        <ul>
-                            <li><a href ="user/1">John Doe</a></li>
-                            <li><a href ="user/1">John Doe</a></li>
-                            <li><a href ="user/1">John Doe</a></li>
-                            <li><a href ="user/1">John Doe</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div>
-                    <h2>Last Games</h2>
-                    <ul>
-                        <li><a href ="game/1">Team1 vs Team2</a></li>
-                        <li><a href ="game/1">Team1 vs Team3</a></li>
-                        <li><a href ="game/1">Team1 vs Team4</a></li>
-                    </ul>
-                </div>
-
-            </div>
-
+    <div>
+        {{ team.info }}
+    </div>
+    <div>
+        <div class="users-block">
+            <h2>Players</h2>
+            <ul>
+                {% for player in players %}
+                    <li><a href="{{ path('user_show', {'id': player.id}) }}">{{ player.name }} {{ player.lastName }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="users-block">
+            <h2>Coaching Staff</h2>
+            <ul>
+                {% for coach in coachs %}
+                    <li><a href="{{ path('user_show', {'id': coach.id}) }}">{{ coach.name }} {{ coach.lastName }}</a></li>
+                {% endfor %}
+            </ul>
         </div>
     </div>
+    <div>
+        <h2>Last Games</h2>
+        <ul>
+            {% for game in games %}
+                <li><a href="{{ path('game_show', {'id': game.id}) }}">{{ game.team1Name }} vs {{ game.team2Name }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+
+
 {% endblock %}

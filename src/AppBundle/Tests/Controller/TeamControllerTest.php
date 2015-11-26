@@ -9,9 +9,13 @@ class TeamControllerTest extends WebTestCase
     public function testIndex()
     {
         $client = static::createClient();
-        $thispage = $client->request('GET', '/team');
-        $indexpage = $client->request('GET', '/');
-        $this->assertEquals($thispage->html(), $indexpage->html());//compare two page, because forward
+        $crawler = $client->request('GET', '/teams');
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+        $this->assertEquals(
+            1,
+            $crawler->filter('h1')->count()
+        );
+
     }
 
     /**
@@ -30,7 +34,8 @@ class TeamControllerTest extends WebTestCase
         );
     }
 
-    public function dataProvider() {
+    public function dataProvider()
+    {
         return [
             ['/team/commandname', 200],
             ['/team/commandname44', 404],

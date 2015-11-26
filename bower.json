@@ -1,0 +1,22 @@
+{
+  "name": "hw7",
+  "version": "0.0.0",
+  "homepage": "https://github.com/Wolframcheg/GeekhubHW7",
+  "authors": [
+    "Pavel <pashak17@ukr.net>"
+  ],
+  "description": "hw geekhub",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6",
+    "jquery.gracket.js": "https://github.com/erik5388/jquery.gracket.js.git",
+    "bootstrap-material-design": "~0.5.0"
+  }
+}

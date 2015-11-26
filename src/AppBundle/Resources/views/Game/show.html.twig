@@ -1,17 +1,8 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Game Team1 vs Team2{% endblock %}
+{% block title %}Game {{ game.team1Name }} vs {{ game.team2Name }}{% endblock %}
 
 {% block body %}
-    <div id="wrapper">
-        <div id="container">
-            <div id="welcome">
-                <h1>Game Team1 vs Team2</h1>
-            </div>
-            <div class="main">
-            <p>Team1 (<strong>0</strong>) - (<strong>0</strong>) Team2</p>
-            </div>
-
-        </div>
-    </div>
+    <p>{{ game.team1Name }} (<strong>{{ game.team1Score }}</strong>) -
+        (<strong>{{ game.team2Score }}</strong>) {{ game.team2Name }}</p>
 {% endblock %}

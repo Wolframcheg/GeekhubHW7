@@ -9,9 +9,13 @@ class GameControllerTest extends WebTestCase
     public function testIndex()
     {
         $client = static::createClient();
-        $client->request('GET', '/game');
+        $crawler = $client->request('GET', '/games');
 
-        $this->assertEquals(301, $client->getResponse()->getStatusCode());
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+        $this->assertEquals(
+            1,
+            $crawler->filter('h1')->count()
+        );
     }
 
     /**
@@ -30,7 +34,8 @@ class GameControllerTest extends WebTestCase
         );
     }
 
-    public function dataProvider() {
+    public function dataProvider()
+    {
         return [
             ['/game/3', 200],
             ['/game/3ff', 404],

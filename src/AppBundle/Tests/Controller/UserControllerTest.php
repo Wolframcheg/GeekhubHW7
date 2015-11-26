@@ -6,14 +6,6 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class UserControllerTest extends WebTestCase
 {
-    public function testIndex()
-    {
-        $client = static::createClient();
-        $client->request('GET', '/user');
-
-        $this->assertEquals(301, $client->getResponse()->getStatusCode());
-    }
-
     /**
      * @dataProvider dataProvider
      * @param $url
@@ -30,7 +22,8 @@ class UserControllerTest extends WebTestCase
         );
     }
 
-    public function dataProvider() {
+    public function dataProvider()
+    {
         return [
             ['/user/3', 200],
             ['/user/3ff', 404],
