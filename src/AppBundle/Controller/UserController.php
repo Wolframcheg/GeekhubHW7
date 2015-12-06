@@ -20,11 +20,6 @@ class UserController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $user = $em->getRepository('AppBundle:User')->find($id);
-//        $faker = \Faker\Factory::create();
-//        $user = new User();
-//        $user->name = $faker->firstName;
-//        $user->lastName = $faker->lastName;
-//        $user->info = $faker->text;
 
         return ['user' => $user];
     }
