@@ -22,21 +22,6 @@ class TeamController extends Controller
         $em = $this->getDoctrine()->getManager();
         $teams = $em->getRepository('AppBundle:Team')->findAll();
 
-//        $teams = [];
-//        $faker = \Faker\Factory::create();
-//
-//        $x = 0;
-//        while ($x++ < 25) {
-//            $contryname = $faker->country;
-//            $slug = str_replace(' ', '-', $contryname);
-//            $slug = preg_replace('/[^A-Za-z\-]/', '', $slug);
-//
-//            $team = new Team();
-//            $team->name = $contryname;
-//            $team->slug = $team->country_slug = strtolower($slug);
-//            $team->image = $faker->imageUrl(22, 15);
-//            array_push($teams, $team);
-//        }
         return ['teams' => $teams];
     }
 
