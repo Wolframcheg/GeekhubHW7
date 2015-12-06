@@ -4,7 +4,7 @@
 
 {% block body %}
     {% for game in games %}
-        <p>{{ game.team1Name }} (<strong>{{ game.team1Score }}</strong>) -
-            (<strong>{{ game.team2Score }}</strong>) {{ game.team2Name }}</p>
+        <p>{{ game.team1.country.name }} (<strong>{{ game.scoreTeam1 }}</strong>) -
+            (<strong>{{ game.scoreTeam2 }}</strong>) {{ game.team2.country.name }}</p>
     {% endfor %}
 {% endblock %}

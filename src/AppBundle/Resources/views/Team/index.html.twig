@@ -10,8 +10,8 @@
     </tr>
     {% for team in teams %}
         <tr>
-            <td><a href="{{ path('country_view',{'slug': team.country_slug}) }}"><img src="{{ team.image }}"></a></td>
-            <td><a href="{{ path('team_show',{'slug': team.slug}) }}">{{ team.name }}</a></td>
+            <td><a href="{{ path('country_view',{'slug': team.country.slug}) }}"><img src="{{ team.country.image }}"></a></td>
+            <td><a href="{{ path('team_show',{'slug': team.country.slug}) }}">{{ team.country.name }}</a></td>
         </tr>
     {% endfor %}
 {% endblock %}

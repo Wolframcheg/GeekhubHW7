@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Team "{{ team.name }}"{% endblock %}
+{% block title %}Team "{{ team.country.name }}"{% endblock %}
 
 {% block body %}
     <div>
-        {{ team.info }}
+        {{ team.description }}
     </div>
     <div>
         <div class="users-block">
@@ -28,7 +28,7 @@
         <h2>Last Games</h2>
         <ul>
             {% for game in games %}
-                <li><a href="{{ path('game_show', {'id': game.id}) }}">{{ game.team1Name }} vs {{ game.team2Name }}</a></li>
+                <li><a href="{{ path('game_show', {'id': game.id}) }}">{{ game.team1.country.name }} vs {{ game.team2.country.name }}</a></li>
             {% endfor %}
         </ul>
     </div>
