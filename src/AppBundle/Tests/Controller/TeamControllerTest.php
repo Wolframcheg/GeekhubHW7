@@ -18,27 +18,22 @@ class TeamControllerTest extends WebTestCase
 
     }
 
-    /**
-     * @dataProvider dataProvider
-     * @param $url
-     * @param $code
-     */
-    public function testShow($url, $code)
+
+    public function testShow()
     {
         $client = static::createClient();
-        $crawler = $client->request('GET', $url);
-        $this->assertEquals($code, $client->getResponse()->getStatusCode());
+
+        $em = $client->getContainer()->get('doctrine.orm.entity_manager');
+        $slug = $em
+            ->getRepository('AppBundle:Country')
+            ->findOneBy([])->getSlug();
+
+        $crawler = $client->request('GET', "/team/{$slug}");
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
         $this->assertEquals(
             1,
             $crawler->filter('h1')->count()
         );
     }
 
-    public function dataProvider()
-    {
-        return [
-            ['/team/commandname', 200],
-            ['/team/commandname44', 404],
-        ];
-    }
 }

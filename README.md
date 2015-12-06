@@ -7,6 +7,8 @@
 After clone go to root project and run
 ```
 composer install
+app/console doctrine:schema:update --force
+app/console doctrine:fixtures:load --append --purge-with-truncate
 npm install
 ./node_modules/.bin/bower install
 ./node_modules/.bin/gulp

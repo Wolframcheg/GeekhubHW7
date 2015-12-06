@@ -18,11 +18,8 @@ class UserController extends Controller
      */
     public function showAction($id)
     {
-        $faker = \Faker\Factory::create();
-        $user = new User();
-        $user->name = $faker->firstName;
-        $user->lastName = $faker->lastName;
-        $user->info = $faker->text;
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository('AppBundle:User')->find($id);
 
         return ['user' => $user];
     }

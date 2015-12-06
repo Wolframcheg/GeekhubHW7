@@ -19,21 +19,9 @@ class CountryController extends Controller
      */
     public function indexAction()
     {
-        $countries = [];
-        $faker = \Faker\Factory::create();
+        $em = $this->getDoctrine()->getManager();
+        $countries = $em->getRepository('AppBundle:Country')->findAll();
 
-        $x = 0;
-        while ($x++ < 25) {
-            $contryname = $faker->country;
-            $slug = str_replace(' ', '-', $contryname);
-            $slug = preg_replace('/[^A-Za-z\-]/', '', $slug);
-
-            $country = new Country();
-            $country->name = $contryname;
-            $country->slug = strtolower($slug);
-
-            array_push($countries, $country);
-        }
         return ['countries' => $countries];
     }
 
@@ -44,12 +32,9 @@ class CountryController extends Controller
      */
     public function showAction($slug)
     {
-        $faker = \Faker\Factory::create();
-        $country = new Country();
-        $country->slug = $slug;
-        $country->name = $faker->country;
-        $country->image = $faker->imageUrl(22, 15);
-        $country->info = $faker->text;
+        $em = $this->getDoctrine()->getManager();
+        $country = $em->getRepository('AppBundle:Country')->findOneBySlug($slug);
+
         return ['country' => $country];
     }
 }
