@@ -40,7 +40,7 @@ class User
 
 
     /**
-    @ORM\Column(type="string", columnDefinition="ENUM('player', 'coach')")
+     * @ORM\Column(type="string", columnDefinition="ENUM('player', 'coach')")
      */
     private $role;
 
