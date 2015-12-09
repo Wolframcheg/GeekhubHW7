@@ -12,6 +12,21 @@ use Symfony\Component\HttpFoundation\Request;
 class UserController extends Controller
 {
     /**
+     * @Route("/user", name="user_list")
+     * @Method("GET")
+     * @Template()
+     */
+    public function indexAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $users = $em->getRepository('AppBundle:User')->getAllUsersWithпшеDependencies();
+        var_dump($users);exit();
+        return ['users' => $users];
+    }
+
+
+
+    /**
      * @Route("/user/{id}", requirements={"id" = "\d+"}, name="user_show")
      * @Method("GET")
      * @Template("AppBundle:User:show.html.twig")

@@ -20,4 +20,15 @@ class GameRepository extends \Doctrine\ORM\EntityRepository
             ->execute()
             ;
     }
+
+    public function getAllGamesWithDependencies($team)
+    {
+        return $this->createQueryBuilder('game')
+            ->Where('game.team1 = :teamId')
+            ->orWhere('game.team2  = :teamId')
+            ->setParameter('teamId', $team->getId())
+            ->getQuery()
+            ->execute()
+            ;
+    }
 }

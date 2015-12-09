@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}All users{% endblock %}
+
+{% block body %}
+    {% for user in users %}
+        <div class="all-users">
+            <p><a href="{{ path('user_show', {'id': user.id}) }}">{{ user.name }} {{ user.lastName }}</a> - {{ user.role }} - {{ user.team.country.name }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}

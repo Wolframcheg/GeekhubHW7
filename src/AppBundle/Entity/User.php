@@ -45,7 +45,7 @@ class User
     private $role;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Team", inversedBy="user")
+     * @ORM\ManyToOne(targetEntity="Team", inversedBy="users")
      */
     private $team;
 
