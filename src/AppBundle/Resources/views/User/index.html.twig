@@ -3,27 +3,20 @@
 {% block title %}All users{% endblock %}
 
 {% block body %}
-    <div class="all-users">
-    {% for user in pagination %}
-            <p class="item"><a href="{{ path('user_show', {'id': user.id}) }}">{{ user.name }} {{ user.lastName }}</a> - {{ user.role }} - {{ user.team.country.name }}</p>
-    {% endfor %}
-    </div>
-
-    {{ knp_pagination_render(pagination) }}
-
+    {% include 'AppBundle:User:_body_index.html.twig' %}
 {% endblock %}
 
-        {% block javascripts %}
-            {{ parent() }}
-            <script type="text/javascript" src="{{ asset('js/infiniteajaxscroll.js') }}"></script>
-            <script type="text/javascript">
-                var ias = $.ias({
-                    container: ".all-users",
-                    item: ".item",
-                    pagination: ".pagination",
-                    next: ".next a"
-                });
-                ias.extension(new IASSpinnerExtension());
-                ias.extension(new IASNoneLeftExtension({text: 'There are no more pages left to load.'}));
-            </script>
-        {% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('js/infiniteajaxscroll.js') }}"></script>
+    <script type="text/javascript">
+        var ias = $.ias({
+            container: ".all-users",
+            item: ".item",
+            pagination: ".pagination",
+            next: ".next a"
+        });
+        ias.extension(new IASSpinnerExtension());
+        ias.extension(new IASNoneLeftExtension({text: 'There are no more pages left to load.'}));
+    </script>
+{% endblock %}

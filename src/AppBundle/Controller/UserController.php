@@ -30,9 +30,8 @@ class UserController extends Controller
         );
         $pagination->setTemplate('AppBundle:Pagination:pagination.html.twig');
 
-
         if ($request->isXmlHttpRequest()) {
-            $content = $this->renderView('AppBundle:User:index.html.twig',['pagination' => $pagination]);
+            $content = $this->renderView('AppBundle:User:_body_index.html.twig',['pagination' => $pagination]);
             return new Response($content);
         }
 
