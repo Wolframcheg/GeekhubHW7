@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class UserController extends Controller
 {
@@ -16,12 +17,26 @@ class UserController extends Controller
      * @Method("GET")
      * @Template()
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $users = $em->getRepository('AppBundle:User')->getAllUsersWithпшеDependencies();
-        var_dump($users);exit();
-        return ['users' => $users];
+        $query = $em->getRepository('AppBundle:User')->getAllUsersWithDependenciesQuery();
+
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $query, /* query NOT result */
+            $request->query->getInt('page', 1)/*page number*/,
+            50/*limit per page*/
+        );
+        $pagination->setTemplate('AppBundle:Pagination:pagination.html.twig');
+
+
+        if ($request->isXmlHttpRequest()) {
+            $content = $this->renderView('AppBundle:User:index.html.twig',['pagination' => $pagination]);
+            return new Response($content);
+        }
+
+        return ['pagination' => $pagination];
     }
 
 

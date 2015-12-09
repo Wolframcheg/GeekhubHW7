@@ -18,7 +18,7 @@ class GameController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $games = $em->getRepository('AppBundle:Game')->findAll();
+        $games = $em->getRepository('AppBundle:Game')->getAllGamesWithDependencies();
 
         return ['games' => $games];
     }

@@ -19,6 +19,7 @@ gulp.task('fonts', function () {
     return gulp.src(['bower_components/bootstrap/fonts/*'])
         .pipe(gulp.dest('web/fonts/'))
 });
+
 gulp.task('lib-js', function() {
     return gulp.src([
             'bower_components/jquery/dist/jquery.js',
@@ -31,6 +32,26 @@ gulp.task('lib-js', function() {
         .pipe(minifyJs())
         .pipe(gulp.dest('web/js/'));
 });
+
+gulp.task('ias-js-copy', function() {
+    return gulp.src([
+            'bower_components/infiniteajaxscroll/index.js',
+        ])
+        .pipe(concatJs('infiniteajaxscroll.js'))
+        .pipe(minifyJs())
+        .pipe(gulp.dest('web/js/'));
+});
+
+gulp.task('gracket-js-copy', function() {
+    return gulp.src([
+            'bower_components/jquery.gracket.js/jquery.gracket.min.js',
+        ])
+        .pipe(concatJs('jquery.gracket.min.js'))
+        .pipe(minifyJs())
+        .pipe(gulp.dest('web/js/'));
+});
+
+
 gulp.task('pages-js', function() {
     return gulp.src([
             'web-src/js/*.js'
@@ -43,7 +64,7 @@ gulp.task('clean', function () {
         .pipe(clean());
 });
 gulp.task('default', ['clean'], function () {
-    var tasks = ['images', 'fonts', 'less', 'lib-js', 'pages-js'];
+    var tasks = ['images', 'fonts', 'less', 'lib-js', 'pages-js', 'ias-js-copy', 'gracket-js-copy'];
     tasks.forEach(function (val) {
         gulp.start(val);
     });

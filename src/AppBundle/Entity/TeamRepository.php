@@ -22,4 +22,14 @@ class TeamRepository extends \Doctrine\ORM\EntityRepository
             ;
     }
 
+    public function getAllTeamsWithCountry()
+    {
+        return $this->createQueryBuilder('team')
+            ->select('team, country')
+            ->leftJoin('team.country', 'country')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
 }

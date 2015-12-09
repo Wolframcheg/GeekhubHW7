@@ -11,15 +11,14 @@ namespace AppBundle\Entity;
 class UserRepository extends \Doctrine\ORM\EntityRepository
 {
 
-    public function getAllUsersWithDependencies()
+    public function getAllUsersWithDependenciesQuery()
     {
         return $this->createQueryBuilder('user')
-             ->select('user, team')
+             ->select('user, team, country')
              ->join('user.team', 'team')
-            //->join('team.country', 'country')
-           // ->setMaxResults('100')
-            ->getQuery()
-            ->getResult();
-            ;
+             ->join('team.country', 'country')
+             ->getQuery()
+             //->getResult();
+             ;
     }
 }

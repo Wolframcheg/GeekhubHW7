@@ -20,7 +20,7 @@ class TeamController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $teams = $em->getRepository('AppBundle:Team')->findAll();
+        $teams = $em->getRepository('AppBundle:Team')->getAllTeamsWithCountry();
 
         return ['teams' => $teams];
     }
