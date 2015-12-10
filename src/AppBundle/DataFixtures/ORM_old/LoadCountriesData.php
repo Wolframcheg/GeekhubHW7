@@ -14,7 +14,7 @@ class LoadCountriesData extends AbstractFixture implements OrderedFixtureInterfa
         $faker = \Faker\Factory::create();
         $x = 0;
         while ($x++ < 25) {
-            $contryname = $faker->country;
+            $contryname = $faker->country($x);
             $slug = str_replace(' ', '-', $contryname);
             $slug = preg_replace('/[^A-Za-z\-]/', '', $slug);
 
