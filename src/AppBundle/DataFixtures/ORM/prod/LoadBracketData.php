@@ -1,5 +1,5 @@
 <?php
-namespace AppBundle\DataFixtures\ORM;
+namespace AppBundle\DataFixtures\ORM\prod;
 
 use AppBundle\Entity\Bracket;
 use Doctrine\Common\DataFixtures\AbstractFixture;
