@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}All users{% endblock %}
+
+{% block body %}
+    {% include 'AppBundle:User:_body_index.html.twig' %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('js/infiniteajaxscroll.js') }}"></script>
+    <script type="text/javascript">
+        var ias = $.ias({
+            container: ".all-users",
+            item: ".item",
+            pagination: ".pagination",
+            next: ".next a"
+        });
+        ias.extension(new IASSpinnerExtension());
+        ias.extension(new IASNoneLeftExtension({text: 'There are no more pages left to load.'}));
+    </script>
+{% endblock %}

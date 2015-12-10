@@ -13,8 +13,14 @@ class BracketRepository extends \Doctrine\ORM\EntityRepository
     public function getBracketByRound($round)
     {
         return $this->createQueryBuilder('bracket')
+            ->select('bracket, game, team1, team2, country1, country2')
             ->Where('bracket.round = :round')
             ->setParameter('round', $round)
+            ->join('bracket.game','game')
+            ->join('game.team1','team1')
+            ->join('game.team2','team2')
+            ->join('team1.country','country1')
+            ->join('team2.country','country2')
             ->getQuery()
             ->execute()
             ;

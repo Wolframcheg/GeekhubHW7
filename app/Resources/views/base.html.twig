@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <meta type="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1;"/>
         <base href="{{ url('homepage') }}">
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}
@@ -27,6 +27,7 @@
                     <li class="{{ app.request.attributes.get('_route') == 'team_list' ? 'active' }}"><a href="{{ url('team_list') }}">Teams</a></li>
                     <li class="{{ app.request.attributes.get('_route') == 'country_list' ? 'active' }}"><a href="{{ url('country_list') }}">Countries</a></li>
                     <li class="{{ app.request.attributes.get('_route') == 'game_list' ? 'active' }}"><a href="{{ url('game_list') }}">Games</a></li>
+                    <li class="{{ app.request.attributes.get('_route') == 'user_list' ? 'active' }}"><a href="{{ url('user_list') }}">Users</a></li>
                 </ul>
             </div>
         </div>

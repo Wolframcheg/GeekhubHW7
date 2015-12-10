@@ -1,5 +1,5 @@
 <?php
-namespace AppBundle\DataFixtures\ORM;
+namespace AppBundle\DataFixtures\ORM\prod;
 
 use AppBundle\Entity\Country;
 use Doctrine\Common\DataFixtures\AbstractFixture;
@@ -12,9 +12,13 @@ class LoadCountriesData extends AbstractFixture implements OrderedFixtureInterfa
     public function load(ObjectManager $manager)
     {
         $faker = \Faker\Factory::create();
-        $x = 0;
-        while ($x++ < 25) {
-            $contryname = $faker->country;
+        $countries = ['France', 'England', 'Czech Republic', 'Iceland', 'Austria', 'Northern Ireland', 'Portugal',
+                      'Spain', 'Switzerland', 'Italy', 'Belgium', 'Wales', 'Romania', 'Albania', 'Germany', 'Poland',
+                      'Russia', ' Slovakia', 'Croatia', 'Turkey' , 'Hungary', 'Republic of Ireland', 'Sweden', 'Ukraine'];
+
+        $x = -1;
+        foreach($countries as $x => $value) {
+            $contryname = $value;
             $slug = str_replace(' ', '-', $contryname);
             $slug = preg_replace('/[^A-Za-z\-]/', '', $slug);
 

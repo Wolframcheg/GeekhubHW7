@@ -1,5 +1,5 @@
 <?php
-namespace AppBundle\DataFixtures\ORM;
+namespace AppBundle\DataFixtures\ORM\prod;
 
 use AppBundle\Entity\Country;
 use AppBundle\Entity\Game;
