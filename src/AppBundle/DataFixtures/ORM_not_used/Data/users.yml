@@ -1,7 +1,0 @@
-AppBundle\Entity\User:
-    user{1..350}:
-        __construct: false
-        name: <name()>
-        lastName: <lastName()>
-        role: player
-        description: 

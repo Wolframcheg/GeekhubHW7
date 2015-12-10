@@ -3,12 +3,13 @@
 [![Code Coverage](https://scrutinizer-ci.com/g/Wolframcheg/GeekhubHW7/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/Wolframcheg/GeekhubHW7/?branch=master)
 
 [Demo](http://hw7.kuzserv.ru/)
+[You can look my infinite scroll on ](http://hw7.kuzserv.ru/user)
 
 After clone go to root project and run
 ```
 composer install
 app/console doctrine:schema:update --force
-app/console doctrine:fixtures:load --append --purge-with-truncate
+app/console doctrine:fixtures:load --fixtures=src/AppBundle/DataFixtures/ORM/prod/ --append
 npm install
 ./node_modules/.bin/bower install
 ./node_modules/.bin/gulp

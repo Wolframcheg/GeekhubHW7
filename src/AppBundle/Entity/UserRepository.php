@@ -21,4 +21,30 @@ class UserRepository extends \Doctrine\ORM\EntityRepository
              //->getResult();
              ;
     }
+
+    public function getAllUsersWithPagination( $limit=10, $page=1 )
+    {
+        $offset = ($page-1)*$limit;
+
+        return $this->createQueryBuilder('user')
+            ->select('user, team, country')
+            ->join('user.team', 'team')
+            ->join('team.country', 'country')
+            ->setMaxResults($limit)
+            ->setFirstResult($offset)
+            ->getQuery()
+            ->getResult();
+            ;
+    }
+
+    public function getCountAllUsers()
+    {
+        return $this->createQueryBuilder('user')
+            ->select('count(user.id)')
+            ->join('user.team', 'team')
+            ->join('team.country', 'country')
+            ->getQuery()
+            ->getSingleScalarResult()
+        ;
+    }
 }

@@ -6,7 +6,6 @@ php:
 services:
   - mysql
 
-
 before_script:
     - mysql -e 'create database symfony;'
     - cp app/config/parameters.yml.dist app/config/parameters.yml

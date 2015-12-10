@@ -1,7 +1,12 @@
 <div class="all-users">
-    {% for user in pagination %}
+    {% for user in users %}
         <p class="item"><a href="{{ path('user_show', {'id': user.id}) }}">{{ user.name }} {{ user.lastName }}</a> - {{ user.role }} - {{ user.team.country.name }}</p>
     {% endfor %}
 </div>
-
-{{ knp_pagination_render(pagination) }}
+{% if nextPage %}
+    <div class="pagination">
+        <span class="next">
+            <a href="{{ path('user_list', {'page': nextPage}) }}">&gt;</a>
+        </span>
+    </div>
+{% endif %}
