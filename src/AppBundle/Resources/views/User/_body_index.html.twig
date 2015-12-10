@@ -4,7 +4,7 @@
     {% endfor %}
 </div>
 {% if nextPage %}
-    <div class="pagination">
+    <div class="pagination" style="display: none">
         <span class="next">
             <a href="{{ path('user_list', {'page': nextPage}) }}">&gt;</a>
         </span>
