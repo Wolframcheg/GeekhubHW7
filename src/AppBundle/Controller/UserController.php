@@ -21,7 +21,7 @@ class UserController extends Controller
     {
 
         $curPage = $request->query->getInt('page', 1);
-        $limit = 25;
+        $limit = 50;
 
         $em = $this->getDoctrine()->getManager();
         $count = $em->getRepository('AppBundle:User')->getCountAllUsers();

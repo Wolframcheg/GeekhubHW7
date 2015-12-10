@@ -8,15 +8,38 @@
 
 {% block javascripts %}
     {{ parent() }}
-    <script type="text/javascript" src="{{ asset('js/infiniteajaxscroll.js') }}"></script>
+    {#<script type="text/javascript" src="{{ asset('js/infiniteajaxscroll.js') }}"></script>#}
+    {#<script type="text/javascript">#}
+        {#var ias = $.ias({#}
+            {#container: ".all-users",#}
+            {#item: ".item",#}
+            {#pagination: ".pagination",#}
+            {#next: ".next a"#}
+        {#});#}
+        {#ias.extension(new IASSpinnerExtension());#}
+        {#ias.extension(new IASNoneLeftExtension({text: 'There are no more pages left to load.'}));#}
+    {#</script>#}
     <script type="text/javascript">
-        var ias = $.ias({
-            container: ".all-users",
-            item: ".item",
-            pagination: ".pagination",
-            next: ".next a"
+        function loadMoreContent()
+        {
+            var url = $('.pagination .next a').attr('href');
+            $.get(url, function(data) {
+                    var content = $(data),
+                        userList = content.find('.item'),
+                        nextLink = content.find('.next');
+                    $('.all-users').append(userList);
+                    if( nextLink.length ) {
+                        $('.pagination').html(nextLink);
+                    } else {
+                        $('.pagination').remove();
+                        $('.all-users').append('<p>There are no more pages left to load.</p>');
+                    }
+            });
+        }
+        $(window).scroll(function() {
+            if ($(window).scrollTop() == $(document).height() - $(window).height() && $('.pagination .next a').length) {
+                loadMoreContent();
+            }
         });
-        ias.extension(new IASSpinnerExtension());
-        ias.extension(new IASNoneLeftExtension({text: 'There are no more pages left to load.'}));
     </script>
 {% endblock %}
