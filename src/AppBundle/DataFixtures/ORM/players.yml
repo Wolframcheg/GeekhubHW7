@@ -1,0 +1,6 @@
+AppBundle\Entity\Player:
+    player{1..350}:
+        __construct: false
+        name: <name()>
+        lastName: <lastName()>
+        description: <text()>

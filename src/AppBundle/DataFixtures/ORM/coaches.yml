@@ -1,0 +1,6 @@
+AppBundle\Entity\Coach:
+    coach{1..100}:
+        __construct: false
+        name: <name()>
+        lastName: <lastName()>
+        description: <text()>
