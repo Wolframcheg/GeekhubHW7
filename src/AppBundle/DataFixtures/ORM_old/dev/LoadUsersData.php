@@ -1,7 +1,9 @@
 <?php
 namespace AppBundle\DataFixtures\ORM\prod;
 
+use AppBundle\Entity\Coach;
 use AppBundle\Entity\Country;
+use AppBundle\Entity\Player;
 use AppBundle\Entity\Team;
 use AppBundle\Entity\User;
 use Doctrine\Common\DataFixtures\AbstractFixture;
@@ -20,10 +22,9 @@ class LoadUsersData extends AbstractFixture implements OrderedFixtureInterface
 
             $i = 0;
             while ($i++ < 14) {
-                $player = new User();
+                $player = new Player();
                 $player->setName($faker->firstName);
                 $player->setLastName($faker->lastName);
-                $player->setRole(User::ROLE_PLAYER);
                 $player->setDescription($faker->text);
                 $player->setTeam($team);
                 $manager->persist($player);
@@ -32,10 +33,9 @@ class LoadUsersData extends AbstractFixture implements OrderedFixtureInterface
 
             $i = 0;
             while ($i++ < 4) {
-                $coach = new User();
+                $coach = new Coach();
                 $coach->setName($faker->firstName);
                 $coach->setLastName($faker->lastName);
-                $coach->setRole(User::ROLE_COACH);
                 $coach->setDescription($faker->text);
                 $coach->setTeam($team);
                 $manager->persist($coach);

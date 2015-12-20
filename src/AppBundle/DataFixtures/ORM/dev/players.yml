@@ -1,0 +1,7 @@
+AppBundle\Entity\Player:
+    player{0..349}:
+        __construct: false
+        name: <name()>
+        lastName: <lastName()>
+        description: <text()>
+        team: @team<(floor($fake('current') / 14))>

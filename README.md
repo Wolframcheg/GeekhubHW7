@@ -9,7 +9,7 @@ After clone go to root project and run
 ```
 composer install
 app/console doctrine:schema:update --force
-app/console doctrine:fixtures:load --fixtures=src/AppBundle/DataFixtures/ORM/prod/ --append
+app/console hautelook_alice:doctrine:fixtures:load --append
 npm install
 ./node_modules/.bin/bower install
 ./node_modules/.bin/gulp

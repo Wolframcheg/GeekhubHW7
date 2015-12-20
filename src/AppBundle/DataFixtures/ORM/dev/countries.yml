@@ -1,0 +1,7 @@
+AppBundle\Entity\Country:
+    country{0..24}:
+        __construct: false
+        name (unique): <country()>
+        description: <text()>
+        image: <imageUrl(22, 15)>
+        slug: <customSlug($name)>

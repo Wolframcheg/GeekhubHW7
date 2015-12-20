@@ -37,13 +37,19 @@ class Team
     private $country;
 
     /**
-     * @ORM\OneToMany(targetEntity="User", mappedBy="team")
+     * @ORM\OneToMany(targetEntity="Player", mappedBy="team")
      */
-    private $users;
+    private $players;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Coach", mappedBy="team")
+     */
+    private $coaches;
 
 
     public function __construct() {
-        $this->users = new ArrayCollection();
+        $this->players = new ArrayCollection();
+        $this->coaches = new ArrayCollection();
     }
 
 
@@ -105,45 +111,73 @@ class Team
         return $this->country;
     }
 
+
+
     /**
-     * Add user
+     * Add players
      *
-     * @param \AppBundle\Entity\User $user
-     *
+     * @param \AppBundle\Entity\Player $player
      * @return Team
      */
-    public function addUser(\AppBundle\Entity\User $user)
+    public function addPlayer(\AppBundle\Entity\Player $player)
     {
-        $this->users[] = $user;
-
+        $this->players[] = $player;
+        $player->setTeam($this);
         return $this;
     }
 
     /**
-     * Remove user
+     * Remove players
      *
-     * @param \AppBundle\Entity\User $user
+     * @param \AppBundle\Entity\Player $player
      */
-    public function removeUser(\AppBundle\Entity\User $user)
+    public function removePlayer(\AppBundle\Entity\Player $player)
     {
-        $this->users->removeElement($user);
+        $this->players->removeElement($player);
+        $player->setTeam(null);
     }
 
     /**
-     * Get users
+     * Get players
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getUsers()
+    public function getPlayers()
     {
-        return $this->users;
+        return $this->players;
     }
 
-    public function getUsersByRole($role)
+    /**
+     * Add coaches
+     *
+     * @param \AppBundle\Entity\Coach $coach
+     * @return Team
+     */
+    public function addCoach(\AppBundle\Entity\Coach $coach)
     {
-        $criteria = Criteria::create();
-        $criteria->where(Criteria::expr()->eq('role', $role));
+        $this->coaches[] = $coach;
+        $coach->setTeam($this);
+        return $this;
+    }
 
-        return $this->users->matching($criteria);
+    /**
+     * Remove coaches
+     *
+     * @param \AppBundle\Entity\Coach $coach
+     */
+    public function removeCoach(\AppBundle\Entity\Coach $coach)
+    {
+        $this->coaches->removeElement($coach);
+        $coach->setTeam(null);
+    }
+
+    /**
+     * Get coaches
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCoaches()
+    {
+        return $this->coaches;
     }
 }
