@@ -9,8 +9,11 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="AppBundle\Entity\UserRepository")
+ * @ORM\InheritanceType("SINGLE_TABLE")
+ * @ORM\DiscriminatorColumn(name="role", type="string")
+ * @ORM\DiscriminatorMap({"player" = "Player", "coach" = "Coach"})
  */
-class User
+abstract class User
 {
     const ROLE_PLAYER = 'player';
     const ROLE_COACH = 'coach';
@@ -40,12 +43,7 @@ class User
 
 
     /**
-     * @ORM\Column(type="string", columnDefinition="ENUM('player', 'coach')")
-     */
-    private $role;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Team", inversedBy="users")
+     *@ORM\ManyToOne(targetEntity="Team", inversedBy="team")
      */
     private $team;
 
@@ -114,26 +112,6 @@ class User
         return $this->lastName;
     }
 
-    /**
-     * Set role
-     *
-     * @param  string $role
-     * @return User
-     */
-    public function setRole($role)
-    {
-        $this->role = $role;
-        return $this;
-    }
-    /**
-     * Get role
-     *
-     * @return string
-     */
-    public function getRole()
-    {
-        return $this->role;
-    }
 
     /**
      * Set product

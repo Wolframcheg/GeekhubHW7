@@ -22,6 +22,20 @@ class TeamRepository extends \Doctrine\ORM\EntityRepository
             ;
     }
 
+    public function getTeamByCountrySlugWithDependencies($slug)
+    {
+        return $this->createQueryBuilder('team')
+            ->select('team, country, players, coaches')
+            ->leftJoin('team.country', 'country')
+            ->leftJoin('team.players', 'players')
+            ->leftJoin('team.coaches', 'coaches')
+            ->andWhere('country.slug = :slug')
+            ->setParameter('slug', $slug)
+            ->getQuery()
+            ->getOneOrNullResult()
+            ;
+    }
+
     public function getAllTeamsWithCountry()
     {
         return $this->createQueryBuilder('team')

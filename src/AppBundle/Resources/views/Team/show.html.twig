@@ -10,7 +10,7 @@
         <div class="users-block">
             <h2>Players</h2>
             <ul>
-                {% for player in players %}
+                {% for player in team.players %}
                     <li><a href="{{ path('user_show', {'id': player.id}) }}">{{ player.name }} {{ player.lastName }}</a></li>
                 {% endfor %}
             </ul>
@@ -18,7 +18,7 @@
         <div class="users-block">
             <h2>Coaching Staff</h2>
             <ul>
-                {% for coach in coachs %}
+                {% for coach in team.coaches %}
                     <li><a href="{{ path('user_show', {'id': coach.id}) }}">{{ coach.name }} {{ coach.lastName }}</a></li>
                 {% endfor %}
             </ul>

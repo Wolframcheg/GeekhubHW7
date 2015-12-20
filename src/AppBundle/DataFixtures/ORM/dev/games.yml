@@ -1,0 +1,29 @@
+AppBundle\Entity\Game:
+    game0:
+        __construct: false
+        team1: @team0
+        team2: @team1
+        scoreTeam1: <numberBetween(0, 10)>
+        scoreTeam2: <numberBetween(0, 10)>
+        date: <dateTime()>
+    game1:
+        __construct: false
+        team1: @team2
+        team2: @team3
+        scoreTeam1: <numberBetween(0, 10)>
+        scoreTeam2: <numberBetween(0, 10)>
+        date: <dateTime()>
+    game2:
+        __construct: false
+        team1: @team4
+        team2: @team5
+        scoreTeam1: <numberBetween(0, 10)>
+        scoreTeam2: <numberBetween(0, 10)>
+        date: <dateTime()>
+    game3:
+        __construct: false
+        team1: @team6
+        team2: @team7
+        scoreTeam1: <numberBetween(0, 10)>
+        scoreTeam2: <numberBetween(0, 10)>
+        date: <dateTime()>
