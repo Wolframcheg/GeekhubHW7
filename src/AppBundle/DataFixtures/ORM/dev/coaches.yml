@@ -1,6 +1,7 @@
 AppBundle\Entity\Coach:
-    coach{1..100}:
+    coach{0..99}:
         __construct: false
         name: <name()>
         lastName: <lastName()>
         description: <text()>
+        team: @team<(floor($fake('current') / 4))>

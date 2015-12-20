@@ -4,4 +4,7 @@ parameters:
 #    parameter_name: value
 
 services:
+    faker.provider.custom:
+        class: AppBundle\DataFixtures\Faker\Provider\CustomProvider
+        tags: [ { name: hautelook_alice.faker.provider } ]
 

@@ -34,15 +34,16 @@ class TeamController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $team = $em->getRepository('AppBundle:Team')->getTeamByCountrySlug($slug);
-        $players = $team->getUsersByRole(User::ROLE_PLAYER);
-        $coachs= $team->getUsersByRole(User::ROLE_COACH);
+        $team = $em->getRepository('AppBundle:Team')->getTeamByCountrySlugWithDependencies($slug);
+//        var_dump($team);exit();
+//        $players = $team->getUsersByRole(User::ROLE_PLAYER);
+//        $coachs= $team->getUsersByRole(User::ROLE_COACH);
         $games = $em->getRepository('AppBundle:Game')->getGamesByTeam($team);
 
         return [
             'team' => $team,
-            'players' => $players,
-            'coachs' => $coachs,
+//            'players' => $players,
+//            'coachs' => $coachs,
             'games' => $games
         ];
     }

@@ -1,0 +1,5 @@
+AppBundle\Entity\Team:
+    team{0..24}:
+        __construct: false
+        description: <text()>
+        country (unique): @country*

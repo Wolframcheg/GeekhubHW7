@@ -27,7 +27,7 @@ class UserRepository extends \Doctrine\ORM\EntityRepository
         $offset = ($page-1)*$limit;
 
         return $this->createQueryBuilder('user')
-            ->select('user, team, country')
+            ->select('user')
             ->join('user.team', 'team')
             ->join('team.country', 'country')
             ->setMaxResults($limit)

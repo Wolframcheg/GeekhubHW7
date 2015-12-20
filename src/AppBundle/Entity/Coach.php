@@ -11,5 +11,5 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Coach extends User
 {
-
+    const ROLENAME = 'coach';
 }

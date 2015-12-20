@@ -1,6 +1,8 @@
 <div class="all-users">
     {% for user in users %}
-        <p class="item"><a href="{{ path('user_show', {'id': user.id}) }}">{{ user.name }} {{ user.lastName }}</a> - {{ user.role }} - {{ user.team.country.name }}</p>
+        <p class="item"><a href="{{ path('user_show', {'id': user.id}) }}">{{ user.name }} {{ user.lastName }}</a> -
+            {{constant('ROLENAME', user) }}
+            - {{ user.team.country.name }}</p>
     {% endfor %}
 </div>
 {% if nextPage %}
