@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Bracket
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="AppBundle\Entity\BracketRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\BracketRepository")
  */
 class Bracket
 {
