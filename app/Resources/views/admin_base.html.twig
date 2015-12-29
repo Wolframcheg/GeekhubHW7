@@ -24,8 +24,8 @@
             </div>
             <div class="navbar-collapse collapse navbar-responsive-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    {#<li class="{{ app.request.attributes.get('_route') == 'team_list' ? 'active' }}"><a href="{{ url('team_list') }}">Teams</a></li>#}
-                    {#<li class="{{ app.request.attributes.get('_route') == 'country_list' ? 'active' }}"><a href="{{ url('country_list') }}">Countries</a></li>#}
+                    <li class="{{ app.request.attributes.get('_route') == 'admin_team' ? 'active' }}"><a href="{{ url('admin_team') }}">Teams</a></li>
+                    <li class="{{ app.request.attributes.get('_route') == 'admin_country' ? 'active' }}"><a href="{{ url('admin_country') }}">Countries</a></li>
                     {#<li class="{{ app.request.attributes.get('_route') == 'game_list' ? 'active' }}"><a href="{{ url('game_list') }}">Games</a></li>#}
                     {#<li class="{{ app.request.attributes.get('_route') == 'user_list' ? 'active' }}"><a href="{{ url('user_list') }}">Users</a></li>#}
                 </ul>

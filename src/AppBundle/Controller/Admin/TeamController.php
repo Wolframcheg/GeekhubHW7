@@ -2,27 +2,28 @@
 
 namespace AppBundle\Controller\Admin;
 
+use AppBundle\Form\TeamType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use AppBundle\Entity\Country;
+use AppBundle\Entity\Team;
 use AppBundle\Form\CountryType;
 
 /**
  * Country controller.
  *
- * @Route("/admin/country")
+ * @Route("/admin/team")
  */
-class CountryController extends Controller
+class TeamController extends Controller
 {
 
     /**
      * Lists all Country entities.
      *
-     * @Route("/", name="admin_country")
+     * @Route("/", name="admin_team")
      * @Method("GET")
      * @Template()
      */
@@ -30,7 +31,7 @@ class CountryController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('AppBundle:Country')->findAll();
+        $entities = $em->getRepository('AppBundle:Team')->findAll();
 
         $deleteForms = [];
 
@@ -46,13 +47,13 @@ class CountryController extends Controller
     /**
      * Creates a new Country entity.
      *
-     * @Route("/", name="team_create")
+     * @Route("/", name="country_create")
      * @Method("POST")
      * @Template("AppBundle:Country:new.html.twig")
      */
     public function createAction(Request $request)
     {
-        $entity = new Country();
+        $entity = new Team();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
@@ -61,7 +62,7 @@ class CountryController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('admin_country'));
+            return $this->redirect($this->generateUrl('admin_team'));
         }
 
         return [
@@ -73,13 +74,13 @@ class CountryController extends Controller
     /**
      * Creates a form to create a Country entity.
      *
-     * @param Country $entity The entity
+     * @param Team $entity The entity
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createCreateForm(Country $entity)
+    private function createCreateForm(Team $entity)
     {
-        $form = $this->createForm(CountryType::class, $entity, array(
+        $form = $this->createForm(TeamType::class, $entity, array(
             'action' => $this->generateUrl('team_create'),
             'method' => 'POST',
         ));
@@ -94,13 +95,13 @@ class CountryController extends Controller
     /**
      * Displays a form to create a new Country entity.
      *
-     * @Route("/new", name="country_new")
+     * @Route("/new", name="team_new")
      * @Method("GET")
      * @Template()
      */
     public function newAction()
     {
-        $entity = new Country();
+        $entity = new Team();
         $form   = $this->createCreateForm($entity);
 
         return array(
@@ -112,7 +113,7 @@ class CountryController extends Controller
     /**
      * Displays a form to edit an existing Country entity.
      *
-     * @Route("/{id}/edit", name="admin_country_edit")
+     * @Route("/{id}/edit", name="admin_team_edit")
      * @Method("GET")
      * @Template()
      */
@@ -120,10 +121,10 @@ class CountryController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('AppBundle:Country')->find($id);
+        $entity = $em->getRepository('AppBundle:Team')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Country entity.');
+            throw $this->createNotFoundException('Unable to find Team entity.');
         }
 
         $editForm = $this->createEditForm($entity);
@@ -136,14 +137,14 @@ class CountryController extends Controller
     /**
     * Creates a form to edit a Country entity.
     *
-    * @param Country $entity The entity
+    * @param Team $entity The entity
     *
     * @return \Symfony\Component\Form\Form The form
     */
-    private function createEditForm(Country $entity)
+    private function createEditForm(Team $entity)
     {
-        $form = $this->createForm(CountryType::class, $entity, [
-            'action' => $this->generateUrl('admin_country_update', ['id' => $entity->getId()]),
+        $form = $this->createForm(TeamType::class, $entity, [
+            'action' => $this->generateUrl('admin_team_update', ['id' => $entity->getId()]),
             'method' => 'PUT',
         ]);
 
@@ -156,7 +157,7 @@ class CountryController extends Controller
     /**
      * Edits an existing Country entity.
      *
-     * @Route("/{id}", name="admin_country_update")
+     * @Route("/{id}", name="admin_team_update")
      * @Method("PUT")
      * @Template()
      */
@@ -164,7 +165,7 @@ class CountryController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('AppBundle:Country')->find($id);
+        $entity = $em->getRepository('AppBundle:Team')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Country entity.');
@@ -177,7 +178,7 @@ class CountryController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('admin_country'));
+            return $this->redirect($this->generateUrl('admin_team'));
         }
 
         return array(
@@ -188,7 +189,7 @@ class CountryController extends Controller
     /**
      * Deletes a Country entity.
      *
-     * @Route("/{id}", name="admin_country_delete")
+     * @Route("/{id}", name="admin_team_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, $id)
@@ -198,7 +199,7 @@ class CountryController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('AppBundle:Country')->find($id);
+            $entity = $em->getRepository('AppBundle:Team')->find($id);
 
             if (!$entity) {
                 throw $this->createNotFoundException('Unable to find Country entity.');
@@ -221,7 +222,7 @@ class CountryController extends Controller
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('admin_country_delete', array('id' => $id)))
+            ->setAction($this->generateUrl('admin_team_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', SubmitType::class, ['label' => ' ', 'attr' => [ 'class' => 'glyphicon glyphicon-trash btn-link' ]])
             ->getForm()
