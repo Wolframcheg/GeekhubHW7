@@ -10,4 +10,14 @@ namespace AppBundle\Repository;
  */
 class PlayerRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getAllPlayersWithDependencies()
+    {
+        return $this->createQueryBuilder('player')
+            ->select('player, team, country')
+            ->join('player.team', 'team')
+            ->join('team.country', 'country')
+            ->getQuery()
+            ->getResult();
+            ;
+    }
 }

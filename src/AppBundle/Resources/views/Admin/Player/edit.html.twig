@@ -1,0 +1,11 @@
+{% extends '::admin_base.html.twig' %}
+
+{% block title %}Edit player{% endblock %}
+
+{% block body %}
+    <a href="{{ path('admin_player') }}" class="btn btn-raised btn-primary">
+        Back to the list
+    </a>
+
+    {{ form(edit_form) }}
+{% endblock %}
