@@ -20,14 +20,15 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ url('homepage') }}">Euro 2016</a>
+                <a class="navbar-brand" href="{{ url('admin_index') }}">Admin</a>
             </div>
             <div class="navbar-collapse collapse navbar-responsive-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li class="{{ app.request.attributes.get('_route') == 'admin_team' ? 'active' }}"><a href="{{ url('admin_team') }}">Teams</a></li>
                     <li class="{{ app.request.attributes.get('_route') == 'admin_country' ? 'active' }}"><a href="{{ url('admin_country') }}">Countries</a></li>
                     <li class="{{ app.request.attributes.get('_route') == 'admin_player' ? 'active' }}"><a href="{{ url('admin_player') }}">Players</a></li>
-                    {#<li class="{{ app.request.attributes.get('_route') == 'user_list' ? 'active' }}"><a href="{{ url('user_list') }}">Users</a></li>#}
+                    <li class="{{ app.request.attributes.get('_route') == 'admin_coach' ? 'active' }}"><a href="{{ url('admin_coach') }}">Coachs</a></li>
+                    <li class="{{ app.request.attributes.get('_route') == 'admin_game' ? 'active' }}"><a href="{{ url('admin_game') }}">Games</a></li>
                 </ul>
             </div>
         </div>

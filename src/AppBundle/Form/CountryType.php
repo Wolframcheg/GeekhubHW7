@@ -19,7 +19,7 @@ class CountryType extends AbstractType
         $builder
             ->add('name', TextType::class)
             ->add('description', TextareaType::class)
-            ->add('image')
+            ->add('fileImage', ImageType::class)
             ->add('slug')
         ;
     }

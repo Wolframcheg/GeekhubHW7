@@ -47,7 +47,7 @@ class TeamController extends Controller
     /**
      * Creates a new Country entity.
      *
-     * @Route("/", name="country_create")
+     * @Route("/", name="team_create")
      * @Method("POST")
      * @Template("AppBundle:Country:new.html.twig")
      */

@@ -42,6 +42,8 @@ class Country
      */
     private $image;
 
+    private $fileImage;
+
     /**
      * @var string
      * @ORM\Column(name="slug", type="string", length=255)
@@ -128,6 +130,21 @@ class Country
     public function getImage()
     {
         return $this->image;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFileImage()
+    {
+        return $this->fileImage;
+    }
+    /**
+     * @param mixed $fileImage
+     */
+    public function setFileImage($fileImage)
+    {
+        $this->fileImage = $fileImage;
     }
 
     /**
