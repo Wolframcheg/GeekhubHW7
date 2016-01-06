@@ -1,0 +1,16 @@
+{% extends '::admin_base.html.twig' %}
+
+{% block title %}Create coach{% endblock %}
+
+{% block body %}
+
+    {{ form(form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('admin_coach') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}

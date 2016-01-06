@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Country
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="AppBundle\Entity\CountryRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\CountryRepository")
  */
 class Country
 {
@@ -42,9 +42,10 @@ class Country
      */
     private $image;
 
+    private $fileImage;
+
     /**
      * @var string
-     *
      * @ORM\Column(name="slug", type="string", length=255)
      */
     private $slug;
@@ -129,6 +130,21 @@ class Country
     public function getImage()
     {
         return $this->image;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFileImage()
+    {
+        return $this->fileImage;
+    }
+    /**
+     * @param mixed $fileImage
+     */
+    public function setFileImage($fileImage)
+    {
+        $this->fileImage = $fileImage;
     }
 
     /**

@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * User
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="AppBundle\Entity\UserRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
  * @ORM\InheritanceType("SINGLE_TABLE")
  * @ORM\DiscriminatorColumn(name="role", type="string")
  * @ORM\DiscriminatorMap({"player" = "Player", "coach" = "Coach"})
@@ -40,12 +40,6 @@ abstract class User
      * @ORM\Column(name="last_name", type="string", length=255)
      */
     private $lastName;
-
-
-    /**
-     *@ORM\ManyToOne(targetEntity="Team", inversedBy="team")
-     */
-    private $team;
 
     /**
      * @var string
@@ -113,29 +107,7 @@ abstract class User
     }
 
 
-    /**
-     * Set product
-     *
-     * @param \AppBundle\Entity\Team $team
-     *
-     * @return User
-     */
-    public function setTeam(Team $team = null)
-    {
-        $this->team = $team;
 
-        return $this;
-    }
-
-    /**
-     * Get product
-     *
-     * @return \AppBundle\Entity\Team
-     */
-    public function getTeam()
-    {
-        return $this->team;
-    }
 
     /**
      * Set description

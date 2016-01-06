@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace AppBundle\Repository;
 
 /**
  * UserRepository
@@ -28,8 +28,6 @@ class UserRepository extends \Doctrine\ORM\EntityRepository
 
         return $this->createQueryBuilder('user')
             ->select('user')
-            ->join('user.team', 'team')
-            ->join('team.country', 'country')
             ->setMaxResults($limit)
             ->setFirstResult($offset)
             ->getQuery()
@@ -41,8 +39,6 @@ class UserRepository extends \Doctrine\ORM\EntityRepository
     {
         return $this->createQueryBuilder('user')
             ->select('count(user.id)')
-            ->join('user.team', 'team')
-            ->join('team.country', 'country')
             ->getQuery()
             ->getSingleScalarResult()
         ;
