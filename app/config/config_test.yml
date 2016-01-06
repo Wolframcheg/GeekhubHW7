@@ -20,4 +20,4 @@ doctrine:
         host:     localhost
         dbname:   symfony
         user:     root
-        password: 
+        password:
